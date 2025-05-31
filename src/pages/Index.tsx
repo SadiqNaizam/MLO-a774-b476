@@ -1,14 +1,32 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainAppLayout from '../components/layout/MainAppLayout';
+import PageHeader from '../components/Dashboard/PageHeader';
+import StatsCardGrid from '../components/Dashboard/StatsCardGrid';
+import ChartSection from '../components/Dashboard/ChartSection';
+import RevenueOverview from '../components/Dashboard/RevenueOverview';
+import TableSection from '../components/Dashboard/TableSection';
+import ToDoList from '../components/Dashboard/ToDoList';
 
-const Index = () => {
+const CrmPage: React.FC = () => {
+  const breadcrumbs = [
+    { label: 'Dashboards', href: '#' },
+    { label: 'CRM' },
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <MainAppLayout>
+      <PageHeader title="CRM" breadcrumbs={breadcrumbs} />
+      <div className="space-y-6">
+        <StatsCardGrid />
+        <ChartSection />
+        <RevenueOverview />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <TableSection className="lg:col-span-2" />
+          <ToDoList />
+        </div>
       </div>
-    </div>
+    </MainAppLayout>
   );
 };
 
-export default Index;
+export default CrmPage;
